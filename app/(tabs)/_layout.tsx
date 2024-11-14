@@ -1,41 +1,3 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
-node_modules/
-
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
-
-# Native
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
-*.pem
-
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-app-example
 import { Link, Stack, Tabs, useNavigation, useRouter } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import {
@@ -45,31 +7,21 @@ import {
   Button,
   TouchableOpacity,
   Pressable,
-  
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export default function RootLayout() {
+export default function TabLayout() {
+  let navigation = useNavigation();
 
-  let navigate = useRouter();
   const handleExplore = () => {
-    navigate.navigate('./')
-    
+    // navigation.navigate('')
   };
   const handleMyFollowing = () => {
-    navigate.navigate('/myFollowing')
-    
+    // navigation.navigate("../my")
   };
   return (
     <Tabs
       screenOptions={{
-        headerStyle: {
-          backgroundColor: "white",
-        },
-
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
         headerLeft: () => (
           <View
             style={{
@@ -84,31 +36,27 @@ export default function RootLayout() {
               source={require("@/assets/images/logoipsum.png")}
             /> */}
             <TouchableOpacity style={{ paddingRight: 20, paddingLeft: 10 }}>
-             
-                <Pressable
-                  onPress={handleExplore}
+              <Link href={""} onPress={handleExplore}>
+                <Text
+                  style={{
+                    fontWeight: "normal",
+                    color: "black",
+                    fontSize: 22,
+                  }}
                 >
-                  <Text
-                    style={{
-                      fontWeight: "normal",
-                      color: "black",
-                      fontSize: 22,
-                    }}
-                  >
-                    Exploree
-                  </Text>
-                </Pressable>
-              
+                  Explore
+                </Text>
+              </Link>
             </TouchableOpacity>
 
             <TouchableOpacity style={{ paddingRight: 10 }}>
-              <Pressable onPress={handleMyFollowing}>
+              <Link href={"/myFollowing"} onPress={handleMyFollowing}>
                 <Text
-                  style={{ fontWeight: "normal", color: "grey", fontSize: 23 }}
+                  style={{ fontWeight: "normal", color: "grey", fontSize: 21 }}
                 >
                   My Following
                 </Text>
-              </Pressable>
+              </Link>
             </TouchableOpacity>
           </View>
         ),
@@ -158,7 +106,7 @@ export default function RootLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          headerShown: true,
+          headerShown: false,
           headerTitle: "",
 
           title: "profile",
