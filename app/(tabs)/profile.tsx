@@ -28,7 +28,7 @@ export default function PROFILEPAGE() {
       <Text style={{ backgroundColor: " ", fontSize: 16, color: "grey" }}>
         Please log in to continue
       </Text>
-      <Link href="/loginPage">
+      <Link href="/Registration">
         <Text style={{ color: "red", fontSize: 12 }}>Login or register </Text>
       </Link>
        
