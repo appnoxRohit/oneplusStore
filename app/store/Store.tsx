@@ -1,12 +1,11 @@
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./Slice";
 
-// src/store.js
-import { configureStore } from '@reduxjs/toolkit';
-import loginReducer from './Slice.jsx';
-
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    auth: loginReducer,  // The 'auth' slice of state is managed by the loginReducer
+    auth: authReducer,
   },
 });
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function myFollowing() {
+export default function Horizontal() {
   return (
-    <View>
-      <Text>myFollowing</Text>
+    <View style={{borderWidth:.2,opacity:.2 , borderColor:"grey" ,marginTop:20}}>
     </View>
   )
 }

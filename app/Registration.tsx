@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,10 +11,13 @@ import {
   Alert,
   TextInput,
 } from "react-native";
-import React, { useState } from "react";
-import { Link, router } from "expo-router";
+import { useDispatch } from "react-redux";
+import { setUser } from "./store/Slice"; // Adjust the path to your slice
+import { router } from "expo-router";
+import { Link } from "expo-router";
 
 export default function Registration() {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     fname: "",
     lname: "",
@@ -42,11 +46,10 @@ export default function Registration() {
         }
       );
 
-      if (response && response?.status === 200) {
-        console.log("====================================");
-        console.log("-->");
-        console.log("====================================");
+      if (response.ok) {
         const data = await response.json();
+        dispatch(setUser({ user: data.user, token: data.token }));
+
         setFormData({
           fname: "",
           lname: "",
@@ -61,18 +64,16 @@ export default function Registration() {
           [
             {
               text: "Cancel",
-              onPress: () => console.log("Cancel Pressed"),
               style: "cancel",
             },
             {
               text: "Login",
-              onPress: () => {
-                console.log("Login Pressed");
-                router.push("/loginPage");
-              },
+              onPress: () => router.push("/loginPage"),
             },
           ]
         );
+      } else {
+        Alert.alert("Error", "Registration failed. Please try again.");
       }
     } catch (error) {
       console.error("Error from server:", error);
@@ -144,7 +145,7 @@ export default function Registration() {
                   handleChange("password_confirmation", text)
                 }
               />
-              <TouchableOpacity
+               <TouchableOpacity
                 style={styles.buttonStyle}
                 onPress={handleSubmit}
               >
@@ -154,12 +155,15 @@ export default function Registration() {
                   Register
                 </Text>
               </TouchableOpacity>
-              <Text>
+              <View style={styles.underBtn}>
+              <Text >
                 Already have an account?{" "}
                 <Link href="/loginPage">
                   <Text style={{ color: "red" }}>LOGIN</Text>
                 </Link>
               </Text>
+              </View>
+             
             </View>
           </View>
         </ScrollView>
@@ -221,4 +225,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  underBtn:{
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal:20,  }
 });

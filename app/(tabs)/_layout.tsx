@@ -1,4 +1,11 @@
-import { Link, Stack, Tabs, useNavigation, useRouter } from "expo-router";
+import {
+  Link,
+  router,
+  Stack,
+  Tabs,
+  useNavigation,
+  useRouter,
+} from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import {
   View,
@@ -17,7 +24,7 @@ export default function TabLayout() {
     // navigation.navigate('')
   };
   const handleMyFollowing = () => {
-    // navigation.navigate("../my")
+    router.push("../myStore");
   };
   return (
     <Tabs
@@ -50,11 +57,11 @@ export default function TabLayout() {
             </TouchableOpacity>
 
             <TouchableOpacity style={{ paddingRight: 10 }}>
-              <Link href={"/myFollowing"} onPress={handleMyFollowing}>
+              <Link href={"/myStore"} onPress={handleMyFollowing}>
                 <Text
                   style={{ fontWeight: "normal", color: "grey", fontSize: 21 }}
                 >
-                  My Following
+                  My Store
                 </Text>
               </Link>
             </TouchableOpacity>

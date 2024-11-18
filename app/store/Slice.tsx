@@ -1,35 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const initialState = {
-  user: localStorage.getItem("user" ) || {},
-  token: localStorage.getItem("token")|| null,              // Add token to the initial state
+  user: null,
+  token: null,
   isAuthenticated: false,
 };
 
 const loginSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setUser(state, action) {
-      state.user = action.payload.user;       // Store user data
-      state.token = action.payload.token;      // Store token
-      state.isAuthenticated = true;            // Mark as authenticated
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isAuthenticated = true;
+
+      // Store data in AsyncStorage
+      AsyncStorage.setItem("user", JSON.stringify(action.payload.user));
+      AsyncStorage.setItem("token", action.payload.token);
     },
     logout(state) {
-      state.user = null;                       // Clear user data on logout
-      state.token = null;                      // Clear token
-      state.isAuthenticated = false;  
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");         
+      state.user = null;
+      state.token = null;
+      state.isAuthenticated = false;
+
+      // Remove data from AsyncStorage
+      AsyncStorage.removeItem("user");
+      AsyncStorage.removeItem("token");
     },
-    editUser: (state, action) => {
-      state.user = { ...state.user, ...action.payload.data.user };
-      localStorage.setItem("user", action.payload.data.user);
-    },
-    
   },
 });
 
-
-export const { setUser, logout ,editUser } = loginSlice.actions;
+export const { setUser, logout } = loginSlice.actions;
 export default loginSlice.reducer;
