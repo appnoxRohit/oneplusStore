@@ -7,6 +7,7 @@ export default function Index() {
 
   return (
     <SafeAreaView style={{ backgroundColor: "", flex: 1 }}>
+      <View>
       <View style={styles.imageArea}>
         <Text style={styles.imageText}>
           Shot on
@@ -36,6 +37,12 @@ export default function Index() {
           resizeMode="cover"
         />
       </View>
+      <View>
+        <Text className="">Recommended</Text>
+
+      </View>
+      </View>
+
     </SafeAreaView>
   );
 }
