@@ -6,6 +6,7 @@ import Horizontal from "../components/Horizontal";
 import TrendingTopics from "../components/TrendingTopics";
 import Post from "../components/Post";
 import FabButton from "../components/FabButton";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function Index() {
 
@@ -62,6 +63,7 @@ export default function Index() {
   }, [currentImageIndex]);
 
   return (
+   
     <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
       <ScrollView  >
         <View style={styles.imageArea}>
@@ -111,6 +113,7 @@ export default function Index() {
       <FabButton  />
     
     </SafeAreaView>
+
   );
 }
 

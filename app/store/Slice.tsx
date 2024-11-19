@@ -20,6 +20,7 @@ const loginSlice = createSlice({
       AsyncStorage.setItem("token", action.payload.token);
     },
     logout(state) {
+    
       state.user = null;
       state.token = null;
       state.isAuthenticated = false;

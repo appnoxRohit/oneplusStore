@@ -11,7 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/Slice";
 import axios from "axios";
-import { router, useNavigation } from "expo-router";
+import { Link, router, useNavigation } from "expo-router";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -84,7 +84,9 @@ export default function LoginPage() {
               }}
             >
               <Text style={{ color: "#EA261A" }}>Forgot Password</Text>
+              <Link href={"/Registration"}>
               <Text style={{ color: "#EA261A" }}>Sign Up</Text>
+              </Link>
             </View>
 
             <TouchableOpacity

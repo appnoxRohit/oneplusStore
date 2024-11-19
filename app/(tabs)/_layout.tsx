@@ -10,16 +10,21 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import {
   View,
   Image,
+  StyleSheet,
   Text,
   Button,
   TouchableOpacity,
   Pressable,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useSelector } from "react-redux";
 
 export default function TabLayout() {
   let navigation = useNavigation();
-  const search= '' 
+  const length = useSelector((state:any) => state.cart.items.length);
+  const totalQuantity = useSelector((state:any) => state.cart.totalQuantity); 
+
+
 
   const handleExplore = () => {
     // navigation.navigate('')
@@ -76,10 +81,18 @@ export default function TabLayout() {
             <Link href={"/components/SearchPage"}>
               <AntDesign name="search1" size={22} color="black" />
             </Link>
+           
             <Link href={"/components/addToCart"}>
               {" "}
+              <View style={{}}>
               <AntDesign name="shoppingcart" size={22} color="black" />
+{totalQuantity>0 &&  <Text style={styles.cartBadge}>{length}</Text>}
+             
+
+              </View>
             </Link>
+            
+           
           </View>
         ),
       }}
@@ -133,3 +146,26 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+const styles = StyleSheet.create({
+  cartContainer: {
+    
+    position: "relative",
+    backgroundColor:"pink",
+   
+  },
+  cartBadge: {
+    position: "absolute",
+    top: -5,
+    right:-8,
+    paddingLeft:5 ,
+    
+    backgroundColor: "red",
+    borderRadius: 10,
+    color:"white",
+    width: 15,
+    height: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+})

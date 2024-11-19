@@ -1,8 +1,23 @@
-import { Button, Image, Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Link } from "expo-router";
+import { Button, Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useEffect } from "react";
+import { Link, router } from "expo-router";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/Slice";
 
 export default function PROFILEPAGE() {
+
+  const token =useSelector((state:any)=>state.auth.token) 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("Token updated:", token);
+  }, [token]);
+
+  const handleLogout = async()=>{
+    await dispatch(logout());
+    router.push("/loginPage")
+
+  }
   return (
     <View
       style={{
@@ -27,9 +42,14 @@ export default function PROFILEPAGE() {
       <Text style={{ backgroundColor: " ", fontSize: 16, color: "grey" }}>
         Please log in to continue
       </Text>
+     {!token? 
       <Link href="/Registration">
-        <Text style={{ color: "red", fontSize: 12 }}>Login or register </Text>
-      </Link>
+      <Text style={{ color: "red", fontSize: 12 }}>Login or register </Text>
+    </Link> : 
+    <TouchableOpacity onPress={handleLogout}>
+      <Text>
+        Logout
+        </Text></TouchableOpacity>}
        
     </View>
   );
