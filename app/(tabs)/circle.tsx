@@ -15,7 +15,6 @@ export default function circle() {
     ];
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <Image
           source={{ uri: 'https://example.com/oneplus-logo.png' }}
@@ -24,7 +23,6 @@ export default function circle() {
         <Text style={styles.headerText}>OnePlus Community</Text>
       </View>
 
-      {/* Circle Page Content */}
       <FlatList
         data={posts}
         renderItem={({ item }) => (
@@ -40,7 +38,6 @@ export default function circle() {
         style={styles.postsList}
       />
 
-      {/* Floating Action Button */}
       <TouchableOpacity style={styles.fab} onPress={() => alert('Create New Post')}>
         <AntDesign name="plus" size={24} color="white" />
       </TouchableOpacity>
@@ -54,10 +51,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F1F1F1',
-    paddingTop: 20,
+    paddingTop: 0,
   },
   header: {
-    backgroundColor: '#EA261A',  // OnePlus Red
+    backgroundColor: '#EA261A',  
     padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -99,7 +96,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   viewButton: {
-    backgroundColor: '#EA261A', // OnePlus Red
+    backgroundColor: '#EA261A', 
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,
@@ -117,7 +114,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#EA261A',  // OnePlus Red
+    backgroundColor: '#EA261A',
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,

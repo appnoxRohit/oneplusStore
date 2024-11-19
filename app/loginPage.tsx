@@ -38,7 +38,6 @@ export default function LoginPage() {
 
       const { user, token } = response.data;
 
-      // Dispatch the user to Redux store
       dispatch(setUser({ user, token }));
 
       console.log("Login Successful:", user);

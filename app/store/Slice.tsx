@@ -16,7 +16,6 @@ const loginSlice = createSlice({
       state.token = action.payload.token;
       state.isAuthenticated = true;
 
-      // Store data in AsyncStorage
       AsyncStorage.setItem("user", JSON.stringify(action.payload.user));
       AsyncStorage.setItem("token", action.payload.token);
     },
@@ -25,7 +24,6 @@ const loginSlice = createSlice({
       state.token = null;
       state.isAuthenticated = false;
 
-      // Remove data from AsyncStorage
       AsyncStorage.removeItem("user");
       AsyncStorage.removeItem("token");
     },

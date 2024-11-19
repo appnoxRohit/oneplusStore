@@ -65,13 +65,11 @@ export default function Index() {
     <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
       <ScrollView  >
         <View style={styles.imageArea}>
-          {/* Animated Text for Shot on OnePlus */}
           <Animated.Text style={[styles.imageText, { opacity: textAnim }]}>
             Shot on
             <Text style={{ fontSize: 24 }}> OnePlus </Text> November
           </Animated.Text>
 
-          {/* Animated Text for The Last of Autumn */}
           <Animated.Text
             style={{
               fontSize: 20,
@@ -81,7 +79,7 @@ export default function Index() {
               bottom: 20,
               left: 10,
               fontWeight: 500,
-              opacity: textAnim, // Link opacity animation to textAnim
+              opacity: textAnim, 
             }}
           >
             The Last of Autumn

@@ -60,7 +60,7 @@ export default function RecomendedCard() {
                 style={styles.circleImg}
                 source={require("../../assets/images/logo.jpeg")}
               />
-              <Text style={styles.circleTitle}>Mr. john</Text>
+              <Text style={styles.circleTitle}>Mrs. Angeila</Text>
             </View>
           </View>
 
@@ -82,7 +82,7 @@ export default function RecomendedCard() {
                 style={styles.circleImg}
                 source={require("../../assets/images/logo.jpeg")}
               />
-              <Text style={styles.circleTitle}>Mr. john</Text>
+              <Text style={styles.circleTitle}>Mr. Brownborn</Text>
             </View>
           </View>
 
@@ -104,7 +104,7 @@ export default function RecomendedCard() {
                 style={styles.circleImg}
                 source={require("../../assets/images/logo.jpeg")}
               />
-              <Text style={styles.circleTitle}>Mr. john</Text>
+              <Text style={styles.circleTitle}>Dr. utgofi</Text>
             </View>
           </View>
 
@@ -126,7 +126,7 @@ export default function RecomendedCard() {
                 style={styles.circleImg}
                 source={require("../../assets/images/logo.jpeg")}
               />
-              <Text style={styles.circleTitle}>Mr. john</Text>
+              <Text style={styles.circleTitle}>Mr. Moknitub</Text>
             </View>
           </View>
 
@@ -148,7 +148,7 @@ export default function RecomendedCard() {
                 style={styles.circleImg}
                 source={require("../../assets/images/logo.jpeg")}
               />
-              <Text style={styles.circleTitle}>Mr. john</Text>
+              <Text style={styles.circleTitle}>Mr. pohn</Text>
             </View>
           </View>
         </View>

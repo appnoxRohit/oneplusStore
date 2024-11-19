@@ -19,6 +19,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function TabLayout() {
   let navigation = useNavigation();
+  const search= '' 
 
   const handleExplore = () => {
     // navigation.navigate('')
@@ -29,6 +30,8 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        tabBarHideOnKeyboard: true,
+        
         headerLeft: () => (
           <View
             style={{
@@ -56,7 +59,7 @@ export default function TabLayout() {
               </Link>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ paddingRight: 10 }}>
+            <TouchableOpacity  style={{ paddingRight: 10  }} >
               <Link href={"/myStore"} onPress={handleMyFollowing}>
                 <Text
                   style={{ fontWeight: "normal", color: "grey", fontSize: 21 }}
@@ -68,10 +71,15 @@ export default function TabLayout() {
           </View>
         ),
         headerRight: () => (
-          <View style={{ flexDirection: "row", gap: 8, paddingRight: 10 }}>
-            <AntDesign name="search1" size={22} color="black" />
-
-            <AntDesign name="shoppingcart" size={22} color="black" />
+          
+          <View style={{ flexDirection: "row", gap: 15, paddingRight: 10 }}>
+            <Link href={"/components/SearchPage"}>
+              <AntDesign name="search1" size={22} color="black" />
+            </Link>
+            <Link href={"/components/addToCart"}>
+              {" "}
+              <AntDesign name="shoppingcart" size={22} color="black" />
+            </Link>
           </View>
         ),
       }}
