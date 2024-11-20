@@ -39,12 +39,12 @@ export default function PROFILEPAGE() {
         ></Image>
         </View>
       
-      <Text style={{ backgroundColor: " ", fontSize: 16, color: "grey" }}>
+      <Text style={{ backgroundColor: " ", fontSize: 23, color: "grey" }}>
         Please log in to continue
       </Text>
      {!token? 
       <Link href="/Registration">
-      <Text style={{ color: "red", fontSize: 12 }}>Login or register </Text>
+      <Text style={{ color: "red", fontSize: 15 }}>Login or register </Text>
     </Link> : 
     <TouchableOpacity onPress={handleLogout}>
       <Text>

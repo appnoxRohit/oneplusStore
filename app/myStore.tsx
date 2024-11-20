@@ -98,7 +98,7 @@ export default function MyFollowing() {
 const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
-    paddingTop: 10,
+    // paddingTop: 10,
     backgroundColor: "#F1F1F1",
   },
   heading: {
